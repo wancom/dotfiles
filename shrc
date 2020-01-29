@@ -1,0 +1,48 @@
+#----------------------------
+# History config
+export HISTSIZE=50000
+export HISTFILESIZE=100000
+export SAVEHIST=${HISTFILESIZE}
+
+if [ "$CURRENTSHELL" = "bash" ];then
+  export HISTFILE=${HOME}/.bash_history
+  export HISTCONTROL=ignoredups
+  export HISTTIMEFORMAT='%F %T '
+elif [ "$CURRENTSHELL" = "zsh" ];then
+  export HISTFILE=${HOME}/.zsh_history
+  setopt hist_ignore_dups
+  setopt extended_history
+else
+  echo "Unexpected shell"
+fi
+#----------------------------
+# Other config
+# ls color config
+export LSCOLORS=gxfxcxdxbxegedabagacad
+#----------------------------
+# Aliases
+alias ls='ls -FGH'
+alias top='top -o cpu'
+alias rm='rrm'
+
+#alias g='git'
+#alias ga='git add'
+#alias gs='git status'
+#alias gp='git push'
+#alias gb='git branch'
+#alias gco='git checkout'
+#alias gc='git commit'
+#alias cat='lolcat'
+#alias gck='git checkout'
+#alias gst='git status'
+#alias gcm='git commit'
+#alias gad='git add'
+#alias gpl='git pull'
+#alias gps='git push'
+#----------------------------
+
+if [ "$CURRENTSHELL" = "bash" ];then
+elif [ "$CURRENTSHELL" = "zsh" ];then
+else
+  echo "Unexpected shell"
+fi

@@ -1,3 +1,4 @@
+echo Loading shrc...
 #----------------------------
 # History config
 export HISTSIZE=50000

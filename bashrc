@@ -1,5 +1,7 @@
 CURRENTSHELL=bash
 
+echo Loading bashrc...
+
 test -r ~/dotfiles/shrc && . ~/dotfiles/shrc
 
 

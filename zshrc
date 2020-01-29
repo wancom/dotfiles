@@ -1,5 +1,7 @@
 CURRENTSHELL=zsh
 
+echo Loading zshrc...
+
 test -r ~/dotfiles/shrc && . ~/dotfiles/shrc
 
 

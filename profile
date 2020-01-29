@@ -1,3 +1,4 @@
+echo Loading profile...
 #----------------------------
 # Path config
 

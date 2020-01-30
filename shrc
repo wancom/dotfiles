@@ -24,7 +24,7 @@ if [ "`uname`" = "Darwin" ];then
   alias ls='ls -FGH'
 elif [ "`uname`" = "Linux" ];then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-  alias ls='ls --color=auto'
+  alias ls='ls -FH --color=auto'
 else
   echo "Unsupported OS"
 fi

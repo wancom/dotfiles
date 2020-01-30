@@ -7,6 +7,8 @@ test -r ~/dotfiles/shrc && . ~/dotfiles/shrc
 
 #----------------------------
 #Prompt
+# TODO: add color on/off option
+
 autoload -Uz vcs_info
 setopt prompt_subst
 
@@ -40,7 +42,7 @@ PROMPT=${PROMPT}$'%F{3}%#%f '
 #Other config
 
 if [ -e /usr/local/share/zsh-completions ]; then
-    fpath=(/usr/local/share/zsh-completions $fpath)
+  fpath=(/usr/local/share/zsh-completions $fpath)
 fi
 
 fpath=(~/.zsh $fpath)
@@ -66,18 +68,21 @@ setopt correct
 zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*:*files' ignored-patterns '*?.o' '*?~' '*\#'
 
-cdpath=(~ ~/project/)
+#cdpath=(~ ~/project/)
 
 zstyle ':completion:*:cd:*' tag-order local-directories path-directories
 zstyle ':completion:*:manuals' separate-sections true
 
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
+if [ -f "~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" ];then
+  . ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 function print_known_hosts (){
+  if [ -d "$HOME/.ssh" ]; then
     if [ -f $HOME/.ssh/config ]; then
-        cat $HOME/.ssh/config | grep -e "^Host" | grep -v "*" | sed 's/Host //g'
+      cat $HOME/.ssh/config | grep -e "^Host" | grep -v "*" | sed 's/Host //g'
     fi
     cat $HOME/.ssh/*/config | grep -e "^Host" | grep -v "*" | sed 's/Host //g'
+  fi
 }
 _cache_hosts=($( print_known_hosts ))
 

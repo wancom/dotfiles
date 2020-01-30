@@ -1,4 +1,6 @@
-clear
-echo Good bye
-sleep 1
-clear
+# Clear screen when logout
+if [ "$SHLVL" = 1 ]; then
+  clear
+  echo Good bye
+  sleep 1
+fi

@@ -8,12 +8,15 @@ printf "Do you want to continue?:"
 read ANS
 if [ "${ANS}" = "Y" -o "${ANS}" = "y" -o "${ANS}" = "YES" -o "${ANS}" = "yes" ];then
 
-ln -s dotfiles/logout ~/.bash_logout
-ln -s dotfiles/bash_profile ~/.bash_profile
-ln -s dotfiles/bashrc ~/.bashrc
+  ln -s dotfiles/logout ~/.bash_logout
+  ln -s dotfiles/bash_profile ~/.bash_profile
+  ln -s dotfiles/bashrc ~/.bashrc
 
-ln -s dotfiles/logout ~/.zlogout
-ln -s dotfiles/zprofile ~/.zprofile
-ln -s dotfiles/zshrc ~/.zshrc
+  ln -s dotfiles/logout ~/.zlogout
+  ln -s dotfiles/zprofile ~/.zprofile
+  ln -s dotfiles/zshrc ~/.zshrc
 
+  if [ "`uname`" = "Linux" ];then
+    ln -s dotfiles/dircolors ~/.dircolors
+  fi
 fi

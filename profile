@@ -1,17 +1,21 @@
 echo Loading profile...
-#----------------------------
+
+
 # Path config
 
-# Set user local bin
-if [ -d $HOME/local/bin ]; then
-  PATH=$HOME/local/bin:$PATH
+# set PATH so it includes user's private bin if it exists
+[ -d "$HOME/local/bin" ] && PATH=$HOME/local/bin:$PATH
+[ -d "$HOME/bin" ] && PATH="$HOME/bin:$PATH"
+[ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
+
+
+# Set golang path if it exists
+if [ -d "$HOME/project/golang" ] ; then
+  export GOPATH=$HOME/project/golang
+  PATH=$GOPATH/bin:$PATH
 fi
 
-# Set golang path
-export GOPATH=$HOME/project/golang
-PATH=$PATH:$GOPATH/bin
-#----------------------------
+
 # Locale config
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-#----------------------------

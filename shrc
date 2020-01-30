@@ -16,15 +16,32 @@ elif [ "$CURRENTSHELL" = "zsh" ];then
 else
   echo "Unexpected shell"
 fi
+
 #----------------------------
 # Other config
 # ls color config
-export LSCOLORS=gxfxcxdxbxegedabagacad
+if [ "`uname`" = "Darwin" ];then
+  export LSCOLORS=`~/dotfiles/convlscolor ~/dotfiles/dircolors`
+  alias ls='ls -FGH'
+elif [ "`uname`" = "Linux" ];then
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  alias ls='ls --color=auto'
+else
+  echo "Unsupported OS"
+fi
+
+
 #----------------------------
 # Aliases
-alias ls='ls -FGH'
-alias top='top -o cpu'
-alias rm='rrm'
+
+if [ "`uname`" = "Darwin" ];then
+  alias top='top -o cpu'
+fi
+if [ ! "`which rrm`" = "" ];then
+  alias rm='rrm'
+else
+  alias rm='rm -i'
+fi
 
 #alias g='git'
 #alias ga='git add'

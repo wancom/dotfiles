@@ -19,7 +19,7 @@ zstyle ':vcs_info:*' formats "%f%c%u(%b)%f" #通常
 zstyle ':vcs_info:*' actionformats '[%b|%a]' #rebase 途中,merge コンフリクト等 formats 外の表示
 
 # Date and time
-PROMPT=$'%F{4}%D %*%f '
+PROMPT=$'%F{4}%D{%a %b %d} %*%f '
 
 # Current directory
 PROMPT=${PROMPT}$'%F{6}%~%f '

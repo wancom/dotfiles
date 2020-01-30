@@ -1,0 +1,87 @@
+#!/bin/sh
+
+int2color(){
+  BOID=0
+  FCOLOR=9
+  BCOLOR=9
+  if [ ! "`echo $1 |grep '01'`" = "" ];then
+    BOID=1
+  fi
+  if [ ! "`echo $1 |grep -e '3[0-9]'`" = "" ];then
+    FCOLOR=`echo $1|sed 's/.*3\([0-9]\).*/\1/g'`
+  fi
+  if [ ! "`echo $1 |grep -e '4[0-9]'`" = "" ];then
+    BCOLOR=`echo $1|sed 's/.*4\([0-9]\).*/\1/g'`
+  fi
+
+  case $FCOLOR in
+    0) if [ $BOID = 0 ];then FCOLOR="a";else FCOLOR="A";fi ;;
+    1) if [ $BOID = 0 ];then FCOLOR="b";else FCOLOR="B";fi ;;
+    2) if [ $BOID = 0 ];then FCOLOR="c";else FCOLOR="C";fi ;;
+    3) if [ $BOID = 0 ];then FCOLOR="d";else FCOLOR="D";fi ;;
+    4) if [ $BOID = 0 ];then FCOLOR="e";else FCOLOR="E";fi ;;
+    5) if [ $BOID = 0 ];then FCOLOR="f";else FCOLOR="F";fi ;;
+    6) if [ $BOID = 0 ];then FCOLOR="g";else FCOLOR="G";fi ;;
+    7) if [ $BOID = 0 ];then FCOLOR="h";else FCOLOR="H";fi ;;
+    9) if [ $BOID = 0 ];then FCOLOR="x";else FCOLOR="x";fi ;;
+  esac
+  case $BCOLOR in
+    0) BCOLOR="a";;
+    1) BCOLOR="b";;
+    2) BCOLOR="c";;
+    3) BCOLOR="d";;
+    4) BCOLOR="e";;
+    5) BCOLOR="f";;
+    6) BCOLOR="g";;
+    7) BCOLOR="h";;
+    9) BCOLOR="x";;
+  esac
+  echo ${FCOLOR}${BCOLOR}
+}
+
+DIRCOLORSDATA=`grep -v -e "^ *#" $1|sed 's/\(.*\)#.*/\1/g'`
+
+while read line
+do
+  if [ "${line% *}" = "DIR" ];then
+    DCDIR=${line#* }
+  elif [ "${line% *}" = "LINK" ];then
+    DCLINK=${line#* }
+  elif [ "${line% *}" = "SOCK" ];then
+    DCSOCK=${line#* }
+  elif [ "${line% *}" = "FIFO" ];then
+    DCFIFO=${line#* }
+  elif [ "${line% *}" = "EXEC" ];then
+    DCEXEC=${line#* }
+  elif [ "${line% *}" = "BLK" ];then
+    DCBLK=${line#* }
+  elif [ "${line% *}" = "CHR" ];then
+    DCCHR=${line#* }
+  elif [ "${line% *}" = "SETUID" ];then
+    DCSETUID=${line#* }
+  elif [ "${line% *}" = "SETGID" ];then
+    DCSETGID=${line#* }
+  elif [ "${line% *}" = "STICKY_OTHER_WRITABLE" ];then
+    DCSOW=${line#* }
+  elif [ "${line% *}" = "OTHER_WRITABLE" ];then
+    DCOW=${line#* }
+  fi
+done <<END
+$DIRCOLORSDATA
+END
+
+
+DCDIR=`int2color ${DCDIR}`
+DCLINK=`int2color ${DCLINK}`
+DCSOCK=`int2color ${DCSOCK}`
+DCFIFO=`int2color ${DCFIFO}`
+DCEXEC=`int2color ${DCEXEC}`
+DCBLK=`int2color ${DCBLK}`
+DCCHR=`int2color ${DCCHR}`
+DCSETUID=`int2color ${DCSETUID}`
+DCSETGID=`int2color ${DCSETGID}`
+DCSOW=`int2color ${DCSOW}`
+DCOW=`int2color ${DCOW}`
+
+echo ${DCDIR}${DCLINK}${DCSOCK}${DCFIFO}${DCEXEC}${DCBLK}${DCCHR}${DCSETUID}${DCSETGID}${DCSOW}${DCOW}
+

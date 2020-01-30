@@ -43,7 +43,9 @@ alias rm='rrm'
 #----------------------------
 
 if [ "$CURRENTSHELL" = "bash" ];then
+echo bash
 elif [ "$CURRENTSHELL" = "zsh" ];then
+echo zsh
 else
   echo "Unexpected shell"
 fi

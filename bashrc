@@ -1,7 +1,5 @@
 CURRENTSHELL=bash
 
-echo Loading bashrc...
-
 test -r ~/dotfiles/shrc && . ~/dotfiles/shrc
 
 #----------------------------
@@ -16,10 +14,12 @@ PS1='\[\e[0;34m\]\d \t\[\e[0m\] '
 PS1=${PS1}'\[\e[0;36m\]\w\[\e[0m\]'
 
 # git
-PS1=${PS1}'$(__git_ps1)\n'
+if [ "`type __git_ps1 >/dev/null 2>&1;echo $?`" = "0" ];then
+  PS1=${PS1}'$(__git_ps1)'
+fi
 
 # User@Host
-PS1=${PS1}'\[\e[0;32m\]\u@\h\[\e[0m\] '
+PS1=${PS1}'\n\[\e[0;32m\]\u@\h\[\e[0m\] '
 
 # %
 PS1=${PS1}'\[\e[0;33m\]\$\[\e[0m\] '

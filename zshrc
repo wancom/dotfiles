@@ -1,7 +1,5 @@
 CURRENTSHELL=zsh
 
-echo Loading zshrc...
-
 test -r ~/dotfiles/shrc && . ~/dotfiles/shrc
 
 
@@ -81,7 +79,7 @@ function print_known_hosts (){
     if [ -f $HOME/.ssh/config ]; then
       cat $HOME/.ssh/config | grep -e "^Host" | grep -v "*" | sed 's/Host //g'
     fi
-    cat $HOME/.ssh/*/config | grep -e "^Host" | grep -v "*" | sed 's/Host //g'
+    (cat $HOME/.ssh/*/config | grep -e "^Host" | grep -v "*" | sed 's/Host //g') 2>/dev/null
   fi
 }
 _cache_hosts=($( print_known_hosts ))

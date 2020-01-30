@@ -18,8 +18,21 @@ zstyle ':vcs_info:git:*' unstagedstr "%F{magenta}+" #add されていないフ�
 zstyle ':vcs_info:*' formats "%f%c%u(%b)%f" #通常
 zstyle ':vcs_info:*' actionformats '[%b|%a]' #rebase 途中,merge コンフリクト等 formats 外の表示
 
-PROMPT=$'%F{4}%D %* %F{6}%~%f ${vcs_info_msg_0_}%$%f\
-%F{2}%n@%m %F{3}%#%f '
+# Date and time
+PROMPT=$'%F{4}%D %*%f '
+
+# Current directory
+PROMPT=${PROMPT}$'%F{6}%~%f '
+
+# git
+PROMPT=${PROMPT}$'${vcs_info_msg_0_}\n'
+
+# User@Host
+PROMPT=${PROMPT}$'%F{2}%n@%m '
+
+# %
+PROMPT=${PROMPT}$'%F{3}%#%f '
+
 
 #----------------------------
 

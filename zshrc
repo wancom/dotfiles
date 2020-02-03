@@ -71,8 +71,8 @@ zstyle ':completion:*:*files' ignored-patterns '*?.o' '*?~' '*\#'
 zstyle ':completion:*:cd:*' tag-order local-directories path-directories
 zstyle ':completion:*:manuals' separate-sections true
 
-if [ -f "~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" ];then
-  . ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [ -f "${HOME}/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" ];then
+  . "${HOME}/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
 fi
 function print_known_hosts (){
   if [ -d "$HOME/.ssh" ]; then

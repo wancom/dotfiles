@@ -1,5 +1,7 @@
 #!/bin/sh
 
+GITHUBNAME="wancom"
+
 echo Dotfile installer
 echo
 echo Following files are installed
@@ -32,5 +34,13 @@ if [ "`uname`" = "Darwin" ];then
   read ANS
   if [ "${ANS}" = "Y" -o "${ANS}" = "y" -o "${ANS}" = "YES" -o "${ANS}" = "yes" ];then
     brew bundle Brewfile
+  fi
+fi
+
+if [ "`uname`" = "Linux" ];then
+  echo "The machine is linux."
+  printf "Do you want to register ssh public key from GitHub?:"
+  if [ "${ANS}" = "Y" -o "${ANS}" = "y" -o "${ANS}" = "YES" -o "${ANS}" = "yes" ];then
+    curl https://github.com/${GITHUBNAME}.keys >> ~/.ssh/authorized_keys
   fi
 fi

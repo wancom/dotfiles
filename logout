@@ -1,6 +1,6 @@
 # Clear screen when logout
 if [ "$SHLVL" = 1 ]; then
-  clear
+#  clear
   echo Good bye
-  sleep 1
+#  sleep 1
 fi

@@ -1,5 +1,6 @@
 #!/bin/sh
 
+BREWINSTALLCMD='/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'
 GITHUBNAME="wancom"
 
 echo Dotfile installer
@@ -28,7 +29,7 @@ if [ "`uname`" = "Darwin" ];then
   printf "Do you want to install homebrew?:"
   read ANS
   if [ "${ANS}" = "Y" -o "${ANS}" = "y" -o "${ANS}" = "YES" -o "${ANS}" = "yes" ];then
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    ${BREWINSTALLCMD}
   fi
   printf "Do you want to install Brewfile?:"
   read ANS

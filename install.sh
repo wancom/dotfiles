@@ -20,3 +20,17 @@ if [ "${ANS}" = "Y" -o "${ANS}" = "y" -o "${ANS}" = "YES" -o "${ANS}" = "yes" ];
     ln -s dotfiles/dircolors ~/.dircolors
   fi
 fi
+
+if [ "`uname`" = "Darwin" ];then
+  echo "The machine is macOS."
+  printf "Do you want to install homebrew?:"
+  read ANS
+  if [ "${ANS}" = "Y" -o "${ANS}" = "y" -o "${ANS}" = "YES" -o "${ANS}" = "yes" ];then
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+  printf "Do you want to install Brewfile?:"
+  read ANS
+  if [ "${ANS}" = "Y" -o "${ANS}" = "y" -o "${ANS}" = "YES" -o "${ANS}" = "yes" ];then
+    brew bundle Brewfile
+  fi
+fi

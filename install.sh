@@ -41,6 +41,7 @@ fi
 if [ "`uname`" = "Linux" ];then
   echo "The machine is linux."
   printf "Do you want to register ssh public key from GitHub?:"
+  read ANS
   if [ "${ANS}" = "Y" -o "${ANS}" = "y" -o "${ANS}" = "YES" -o "${ANS}" = "yes" ];then
     curl https://github.com/${GITHUBNAME}.keys >> ~/.ssh/authorized_keys
   fi

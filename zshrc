@@ -74,14 +74,17 @@ zstyle ':completion:*:manuals' separate-sections true
 if [ -f "${HOME}/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" ];then
   . "${HOME}/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
 fi
-function print_known_hosts (){
+function cache_known_hosts (){
   if [ -d "$HOME/.ssh" ]; then
+		test ! -f $HOME/dotfiles/knownhostscache && rm $HOME/dotfiles/knownhostscache
     if [ -f $HOME/.ssh/config ]; then
-      cat $HOME/.ssh/config | grep -e "^Host" | grep -v "*" | sed 's/Host //g'
+      cat $HOME/.ssh/config | grep -e "^Host" | grep -v "*" | sed 's/Host //g' >> $HOME/dotfiles/knownhostscache
     fi
-    (cat $HOME/.ssh/*/config | grep -e "^Host" | grep -v "*" | sed 's/Host //g') 2>/dev/null
+    (cat $HOME/.ssh/*/config | grep -e "^Host" | grep -v "*" | sed 's/Host //g') 2>/dev/null >> $HOME/dotfiles/knownhostscache
   fi
 }
-_cache_hosts=($( print_known_hosts ))
+
+test ! -f $HOME/dotfiles/knownhostscache && cache_known_hosts
+_cache_hosts=($( cat $HOME/dotfiles/knownhostscache ))
 
 #----------------------------

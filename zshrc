@@ -2,21 +2,38 @@ CURRENTSHELL=zsh
 
 test -r ~/dotfiles/shrc && . ~/dotfiles/shrc
 
+#----------------------------
+# Use version control system info
+autoload -Uz vcs_info
+
+# Get VCS info before prompt
+precmd () { vcs_info }
+
+# VCS info config
+# Load vcs info in detail (%s and %u will be available.)
+zstyle ':vcs_info:git:*' check-for-changes true
+
+# Replace %c with specified text if staged file exists.
+zstyle ':vcs_info:git:*' stagedstr "%F{green}!"
+
+# Replace %u with specified text if not staged file exists.
+zstyle ':vcs_info:git:*' unstagedstr "%F{magenta}+"
+
+# VCS info formats
+# %f: default color, %c: staged, %u: unstaged, %b: branch name
+zstyle ':vcs_info:*' formats "%f%c%u(%b)%f"
+
+# VCS info format (in operating)
+# %a: action name(rebase, marge, etc..)
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
 
 #----------------------------
 #Prompt
 # TODO: add color on/off option
 
-autoload -Uz vcs_info
+# Use variable in prompt
 setopt prompt_subst
 
-precmd () { vcs_info }
-
-zstyle ':vcs_info:git:*' check-for-changes true #formats 設定項目で %c,%u が使用可
-zstyle ':vcs_info:git:*' stagedstr "%F{green}!" #commit されていないファイルがある
-zstyle ':vcs_info:git:*' unstagedstr "%F{magenta}+" #add されていないファイルがある
-zstyle ':vcs_info:*' formats "%f%c%u(%b)%f" #通常
-zstyle ':vcs_info:*' actionformats '[%b|%a]' #rebase 途中,merge コンフリクト等 formats 外の表示
 
 # Date and time
 PROMPT=$'%F{4}%D{%a %b %d} %*%f '

@@ -42,8 +42,10 @@ if ! shopt -oq posix; then
     . /usr/local/etc/bash_completion
   fi
 fi
-
-GITCOMPPATH="/Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash"
-if [ -f ${GITCOMPPATH} ]; then
-. ${GITCOMPPATH}
+if [ "`uname`" = "Darwin" ];then
+  GITCOMPPATH="/Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash"
+  if [ -f ${GITCOMPPATH} ]; then
+    . ${GITCOMPPATH}
+  fi
 fi
+

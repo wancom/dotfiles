@@ -20,8 +20,8 @@ fi
 # Other config
 # ls color config
 if [ "`uname`" = "Darwin" ];then
-  test ! -f ~/dotfiles/dircolorsmac && ~/dotfiles/convlscolor ~/dotfiles/dircolors > ~/dotfiles/dircolorsmac
-  export LSCOLORS=`cat ~/dotfiles/dircolorsmac`
+  test ! -f ~/dotfiles/cache/dircolorsmac && ~/dotfiles/convlscolor ~/dotfiles/dircolors > ~/dotfiles/cache/dircolorsmac
+  export LSCOLORS=`cat ~/dotfiles/cache/dircolorsmac`
   alias ls='ls -FGH'
 elif [ "`uname`" = "Linux" ];then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"

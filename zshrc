@@ -91,15 +91,15 @@ if [ -f "${HOME}/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" ];then
 fi
 function cache_known_hosts (){
   if [ -d "$HOME/.ssh" ]; then
-		test ! -f $HOME/dotfiles/knownhostscache && rm $HOME/dotfiles/knownhostscache
+		test -f $HOME/dotfiles/cache/knownhostscache && rm $HOME/dotfiles/cache/knownhostscache
     if [ -f $HOME/.ssh/config ]; then
-      cat $HOME/.ssh/config | grep -e "^Host" | grep -v "*" | sed 's/Host //g' >> $HOME/dotfiles/knownhostscache
+      cat $HOME/.ssh/config | grep -e "^Host" | grep -v "*" | sed 's/Host //g' >> $HOME/dotfiles/cache/knownhostscache
     fi
-    (cat $HOME/.ssh/*/config | grep -e "^Host" | grep -v "*" | sed 's/Host //g') 2>/dev/null >> $HOME/dotfiles/knownhostscache
+    (cat $HOME/.ssh/*/config | grep -e "^Host" | grep -v "*" | sed 's/Host //g') 2>/dev/null >> $HOME/dotfiles/cache/knownhostscache
   fi
 }
 
-test ! -f $HOME/dotfiles/knownhostscache && cache_known_hosts
-_cache_hosts=($( cat $HOME/dotfiles/knownhostscache ))
+test ! -f $HOME/dotfiles/cache/knownhostscache && cache_known_hosts
+_cache_hosts=($( cat $HOME/dotfiles/cache/knownhostscache ))
 
 #----------------------------

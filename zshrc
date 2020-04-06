@@ -47,7 +47,6 @@ fpath=(~/.zsh $fpath)
 autoload -U compinit
 compinit -u
 
-setopt auto_cd
 setopt auto_pushd
 setopt pushd_ignore_dups
 setopt hist_ignore_space
@@ -61,7 +60,6 @@ setopt magic_equal_subst
 setopt complete_in_word
 setopt always_last_prompt
 setopt print_eight_bit
-setopt correct
 
 zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*:*files' ignored-patterns '*?.o' '*?~' '*\#'

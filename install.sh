@@ -19,7 +19,7 @@ if [ "${ANS}" = "Y" -o "${ANS}" = "y" -o "${ANS}" = "YES" -o "${ANS}" = "yes" ];
   ln -s dotfiles/zprofile ~/.zprofile
   ln -s dotfiles/zshrc ~/.zshrc
 
-  if [ "`uname`" = "Linux" || "`uname`" = "SunOS" ];then
+  if [ "`uname`" = "Linux" -o "`uname`" = "SunOS" ];then
     ln -s dotfiles/dircolors ~/.dircolors
   fi
 fi

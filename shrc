@@ -37,7 +37,7 @@ fi
 if [ "`uname`" = "Darwin" ];then
   alias top='top -o cpu'
 fi
-if [ ! "`which rrm`" = "" ];then
+if which rrm >/dev/null 2>&1 ;then
   alias rm='rrm'
 else
   alias rm='rm -i'

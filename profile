@@ -7,8 +7,8 @@
 
 
 # Set golang path if it exists
-if [ -d "$HOME/project/golang" ] ; then
-  export GOPATH=$HOME/project/golang
+if [ -d "$HOME/project/go" ] ; then
+  export GOPATH=$HOME/project/go
   PATH=$GOPATH/bin:$PATH
 fi
 

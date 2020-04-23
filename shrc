@@ -23,7 +23,7 @@ if [ "`uname`" = "Darwin" ];then
   test ! -f ~/dotfiles/cache/dircolorsmac && ~/dotfiles/convlscolor ~/dotfiles/dircolors > ~/dotfiles/cache/dircolorsmac
   export LSCOLORS=`cat ~/dotfiles/cache/dircolorsmac`
   alias ls='ls -FGH'
-elif [ "`uname`" = "Linux" || "`uname`" = "SunOS" ];then
+elif [ "`uname`" = "Linux" -o "`uname`" = "SunOS" ];then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
   alias ls='ls -FH --color=auto'
 else

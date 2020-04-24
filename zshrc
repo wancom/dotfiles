@@ -1,6 +1,6 @@
 CURRENTSHELL=zsh
 
-test -r ${HOME}/dotfiles/shrc && . ${HOME}/dotfiles/shrc
+test -r ${HOME}/dotfiles/common/shrc && . ${HOME}/dotfiles/common/shrc
 
 #----------------------------
 # Use version control system info

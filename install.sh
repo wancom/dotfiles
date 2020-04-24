@@ -11,16 +11,16 @@ printf "Do you want to continue?:"
 read ANS
 if [ "${ANS}" = "Y" -o "${ANS}" = "y" -o "${ANS}" = "YES" -o "${ANS}" = "yes" ];then
 
-  ln -s dotfiles/logout ${HOME}/.bash_logout
+  ln -s dotfiles/common/logout ${HOME}/.bash_logout
   ln -s dotfiles/bash_profile ${HOME}/.bash_profile
   ln -s dotfiles/bashrc ${HOME}/.bashrc
 
-  ln -s dotfiles/logout ${HOME}/.zlogout
+  ln -s dotfiles/common/logout ${HOME}/.zlogout
   ln -s dotfiles/zprofile ${HOME}/.zprofile
   ln -s dotfiles/zshrc ${HOME}/.zshrc
 
   if [ "`uname`" = "Linux" -o "`uname`" = "SunOS" ];then
-    ln -s dotfiles/dircolors ${HOME}/.dircolors
+    ln -s dotfiles/common/dircolors ${HOME}/.dircolors
   fi
 fi
 
@@ -34,7 +34,7 @@ if [ "`uname`" = "Darwin" ];then
   printf "Do you want to install Brewfile?:"
   read ANS
   if [ "${ANS}" = "Y" -o "${ANS}" = "y" -o "${ANS}" = "YES" -o "${ANS}" = "yes" ];then
-    brew bundle Brewfile
+    brew bundle common/Brewfile
   fi
 fi
 

@@ -16,8 +16,8 @@ if [ "${ANS}" = "Y" -o "${ANS}" = "y" -o "${ANS}" = "YES" -o "${ANS}" = "yes" ];
   ln -s dotfiles/bash/bashrc ${HOME}/.bashrc
 
   ln -s dotfiles/common/logout ${HOME}/.zlogout
-  ln -s dotfiles/zprofile ${HOME}/.zprofile
-  ln -s dotfiles/zshrc ${HOME}/.zshrc
+  ln -s dotfiles/zsh/zprofile ${HOME}/.zprofile
+  ln -s dotfiles/zsh/zshrc ${HOME}/.zshrc
 
   if [ "`uname`" = "Linux" -o "`uname`" = "SunOS" ];then
     ln -s dotfiles/common/dircolors ${HOME}/.dircolors

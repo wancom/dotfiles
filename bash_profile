@@ -1,5 +1,5 @@
 CURRENTSHELL=bash
 
-test -r ~/dotfiles/profile && . ~/dotfiles/profile
+test -r ${HOME}/dotfiles/profile && . ${HOME}/dotfiles/profile
 
-test -r ~/.bashrc && . ~/.bashrc
+test -r ${HOME}/.bashrc && . ${HOME}/.bashrc

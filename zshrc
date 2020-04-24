@@ -1,6 +1,6 @@
 CURRENTSHELL=zsh
 
-test -r ~/dotfiles/shrc && . ~/dotfiles/shrc
+test -r ${HOME}/dotfiles/shrc && . ${HOME}/dotfiles/shrc
 
 #----------------------------
 # Use version control system info
@@ -60,7 +60,7 @@ if [ -e /usr/local/share/zsh-completions ]; then
   fpath=(/usr/local/share/zsh-completions $fpath)
 fi
 
-fpath=(~/.zsh $fpath)
+fpath=(${HOME}/.zsh $fpath)
 autoload -U compinit
 compinit -u
 
@@ -81,7 +81,7 @@ setopt print_eight_bit
 zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*:*files' ignored-patterns '*?.o' '*?~' '*\#'
 
-#cdpath=(~ ~/project/)
+#cdpath=(${HOME} ${HOME}/project/)
 
 zstyle ':completion:*:cd:*' tag-order local-directories path-directories
 zstyle ':completion:*:manuals' separate-sections true

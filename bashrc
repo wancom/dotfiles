@@ -1,6 +1,6 @@
 CURRENTSHELL=bash
 
-test -r ~/dotfiles/shrc && . ~/dotfiles/shrc
+test -r ${HOME}/dotfiles/shrc && . ${HOME}/dotfiles/shrc
 
 #----------------------------
 #Prompt

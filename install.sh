@@ -11,16 +11,16 @@ printf "Do you want to continue?:"
 read ANS
 if [ "${ANS}" = "Y" -o "${ANS}" = "y" -o "${ANS}" = "YES" -o "${ANS}" = "yes" ];then
 
-  ln -s dotfiles/logout ~/.bash_logout
-  ln -s dotfiles/bash_profile ~/.bash_profile
-  ln -s dotfiles/bashrc ~/.bashrc
+  ln -s dotfiles/logout ${HOME}/.bash_logout
+  ln -s dotfiles/bash_profile ${HOME}/.bash_profile
+  ln -s dotfiles/bashrc ${HOME}/.bashrc
 
-  ln -s dotfiles/logout ~/.zlogout
-  ln -s dotfiles/zprofile ~/.zprofile
-  ln -s dotfiles/zshrc ~/.zshrc
+  ln -s dotfiles/logout ${HOME}/.zlogout
+  ln -s dotfiles/zprofile ${HOME}/.zprofile
+  ln -s dotfiles/zshrc ${HOME}/.zshrc
 
   if [ "`uname`" = "Linux" -o "`uname`" = "SunOS" ];then
-    ln -s dotfiles/dircolors ~/.dircolors
+    ln -s dotfiles/dircolors ${HOME}/.dircolors
   fi
 fi
 
@@ -43,6 +43,6 @@ if [ "`uname`" = "Linux" ];then
   printf "Do you want to register ssh public key from GitHub?:"
   read ANS
   if [ "${ANS}" = "Y" -o "${ANS}" = "y" -o "${ANS}" = "YES" -o "${ANS}" = "yes" ];then
-    curl https://github.com/${GITHUBNAME}.keys >> ~/.ssh/authorized_keys
+    curl https://github.com/${GITHUBNAME}.keys >> ${HOME}/.ssh/authorized_keys
   fi
 fi

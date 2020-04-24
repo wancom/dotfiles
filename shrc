@@ -20,11 +20,11 @@ fi
 # Other config
 # ls color config
 if [ "`uname`" = "Darwin" ];then
-  test ! -f ~/dotfiles/cache/dircolorsmac && ~/dotfiles/convlscolor ~/dotfiles/dircolors > ~/dotfiles/cache/dircolorsmac
-  export LSCOLORS=`cat ~/dotfiles/cache/dircolorsmac`
+  test ! -f ${HOME}/dotfiles/cache/dircolorsmac && ${HOME}/dotfiles/convlscolor ${HOME}/dotfiles/dircolors > ${HOME}/dotfiles/cache/dircolorsmac
+  export LSCOLORS=`cat ${HOME}/dotfiles/cache/dircolorsmac`
   alias ls='ls -FGH'
 elif [ "`uname`" = "Linux" -o "`uname`" = "SunOS" ];then
-  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  test -r ${HOME}/.dircolors && eval "$(dircolors -b ${HOME}/.dircolors)" || eval "$(dircolors -b)"
   alias ls='ls -FH --color=auto'
 else
   echo "Unsupported OS"

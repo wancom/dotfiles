@@ -1,3 +1,3 @@
 CURRENTSHELL=zsh
 
-test -r ~/dotfiles/profile && . ~/dotfiles/profile
+test -r ${HOME}/dotfiles/profile && . ${HOME}/dotfiles/profile

@@ -12,8 +12,8 @@ read ANS
 if [ "${ANS}" = "Y" -o "${ANS}" = "y" -o "${ANS}" = "YES" -o "${ANS}" = "yes" ];then
 
   ln -s dotfiles/common/logout ${HOME}/.bash_logout
-  ln -s dotfiles/bash_profile ${HOME}/.bash_profile
-  ln -s dotfiles/bashrc ${HOME}/.bashrc
+  ln -s dotfiles/bash/bash_profile ${HOME}/.bash_profile
+  ln -s dotfiles/bash/bashrc ${HOME}/.bashrc
 
   ln -s dotfiles/common/logout ${HOME}/.zlogout
   ln -s dotfiles/zprofile ${HOME}/.zprofile

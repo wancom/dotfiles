@@ -1,3 +1,5 @@
 CURRENTSHELL=zsh
 
-test -r ${HOME}/dotfiles/common/profile && . ${HOME}/dotfiles/common/profile
+COMMONPROFILE=${HOME}/dotfiles/common/profile
+
+test -r ${COMMONPROFILE} && . ${COMMONPROFILE}

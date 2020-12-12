@@ -31,11 +31,12 @@ if [ "`uname`" = "Darwin" ];then
   if [ "${ANS}" = "Y" -o "${ANS}" = "y" -o "${ANS}" = "YES" -o "${ANS}" = "yes" ];then
     curl -fsSL ${BREWINSTALLURL} > brew.sh
     /bin/bash brew.sh
+    rm brew.sh
   fi
   printf "Do you want to install Brewfile?:"
   read ANS
   if [ "${ANS}" = "Y" -o "${ANS}" = "y" -o "${ANS}" = "YES" -o "${ANS}" = "yes" ];then
-    brew bundle common/Brewfile
+    brew bundle --file common/Brewfile
   fi
 fi
 

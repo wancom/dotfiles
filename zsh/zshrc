@@ -4,6 +4,10 @@ COMMONRC=${HOME}/dotfiles/common/shrc
 
 test -r ${COMMONRC} && . ${COMMONRC}
 
+LOCALRC=${HOME}/dotfiles/local/shrc
+
+test -r ${LOCALRC} && . ${LOCALRC}
+
 #----------------------------
 # Use version control system info
 autoload -Uz vcs_info

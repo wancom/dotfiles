@@ -4,4 +4,8 @@ COMMONPROFILE=${HOME}/dotfiles/common/profile
 
 test -r ${COMMONPROFILE} && . ${COMMONPROFILE}
 
+LOCALPROFILE=${HOME}/dotfiles/local/profile
+
+test -r ${LOCALPROFILE} && . ${LOCALPROFILE}
+
 test -r ${HOME}/.bashrc && . ${HOME}/.bashrc

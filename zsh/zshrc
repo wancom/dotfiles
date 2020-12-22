@@ -70,6 +70,8 @@ fpath=(${HOME}/.zsh $fpath)
 autoload -U compinit
 compinit -u
 
+bindkey -e
+
 setopt auto_pushd
 setopt pushd_ignore_dups
 setopt hist_ignore_space
